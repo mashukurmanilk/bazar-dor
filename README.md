@@ -65,10 +65,10 @@ npm run dev
 প্রজেক্টটি Vercel / Netlify / Render ইত্যাদিতে ডিপ্লয় করার সময় Environment Variables সেট করতে হবে:
 
 ```env
-BETTER_AUTH_SECRET=CO9qzg34RSJGT99hfjSm9DrNAWQRyGUu
+BETTER_AUTH_SECRET=your_better_auth_secret_here
 BETTER_AUTH_URL=https://your-domain.vercel.app
 NEXT_PUBLIC_BETTER_AUTH_URL=https://your-domain.vercel.app
-BETTER_AUTH_DB_URL=mongodb://mashukurmanik_6561:aKnHFqDjvIV7r1gF@ac-s0yaqn0-shard-00-00.jcsvfv3.mongodb.net:27017,ac-s0yaqn0-shard-00-01.jcsvfv3.mongodb.net:27017,ac-s0yaqn0-shard-00-02.jcsvfv3.mongodb.net:27017/?ssl=true&replicaSet=atlas-rza791-shard-0&authSource=admin
+BETTER_AUTH_DB_URL=mongodb+srv://<username>:<password>@cluster0.mongodb.net/bazardor?retryWrites=true&w=majority
 ```
 
 > **গুরুত্বপূর্ণ (MongoDB Atlas Network Access):**
