@@ -60,9 +60,26 @@ npm run dev
 
 ---
 
+## ⚙️ এনভায়রনমেন্ট ভেরিয়েবল ও ডিপ্লয়মেন্ট গাইড (Deployment & Environment Setup)
+
+প্রজেক্টটি Vercel / Netlify / Render ইত্যাদিতে ডিপ্লয় করার সময় Environment Variables সেট করতে হবে:
+
+```env
+BETTER_AUTH_SECRET=CO9qzg34RSJGT99hfjSm9DrNAWQRyGUu
+BETTER_AUTH_URL=https://your-domain.vercel.app
+NEXT_PUBLIC_BETTER_AUTH_URL=https://your-domain.vercel.app
+BETTER_AUTH_DB_URL=mongodb://mashukurmanik_6561:aKnHFqDjvIV7r1gF@ac-s0yaqn0-shard-00-00.jcsvfv3.mongodb.net:27017,ac-s0yaqn0-shard-00-01.jcsvfv3.mongodb.net:27017,ac-s0yaqn0-shard-00-02.jcsvfv3.mongodb.net:27017/?ssl=true&replicaSet=atlas-rza791-shard-0&authSource=admin
+```
+
+> **গুরুত্বপূর্ণ (MongoDB Atlas Network Access):**
+> Vercel বা ক্লাউড সার্ভারলেস প্ল্যাটফর্ম থেকে MongoDB কানেক্ট করতে MongoDB Atlas এর **Network Access** সেকশনে গিয়ে `0.0.0.0/0` (Allow Access from Anywhere) যুক্ত করতে হবে, অন্যথায় সার্ভারলেস ফাংশন ডাটাবেসে কানেক্ট করতে না পেরে সাইন-ইন/সাইন-আপের সময় টাইমআউট বা এরর দেখাবে।
+
+---
+
 ## 📦 প্রোডাকশন বিল্ড (Production Build)
 
 ```bash
 npm run build
 npm start
 ```
+

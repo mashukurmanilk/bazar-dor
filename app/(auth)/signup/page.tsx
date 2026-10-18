@@ -41,7 +41,8 @@ export default function SignUpPage() {
         // Requirement: "If the user Register successfully then navigate him to his login page."
         router.push("/signin");
       }
-    } catch {
+    } catch (err) {
+      console.error("Sign up error:", err);
       toast.error("রেজিস্ট্রেশন করতে সমস্যা হয়েছে। আবার চেষ্টা করুন।");
     } finally {
       setLoading(false);

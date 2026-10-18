@@ -34,7 +34,8 @@ function SignInForm() {
         router.push(callbackUrl);
         router.refresh();
       }
-    } catch {
+    } catch (err) {
+      console.error("Sign in error:", err);
       toast.error("সাইন ইন করতে সমস্যা হয়েছে। আবার চেষ্টা করুন।");
     } finally {
       setLoading(false);
