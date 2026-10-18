@@ -1,7 +1,8 @@
 "use client";
 
 import React, { Suspense } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import Link from "next/link";
+import { usePathname, useSearchParams } from "next/navigation";
 
 export interface CategoryItem {
   id: string;
@@ -10,36 +11,32 @@ export interface CategoryItem {
 }
 
 export const CATEGORIES: CategoryItem[] = [
-  { id: "vegetables", name: "সবজি", icon: "🥬" },
-  { id: "rice", name: "চাল", icon: "🍚" },
-  { id: "oil", name: "তেল", icon: "🛢️" },
-  { id: "onion", name: "পেঁয়াজ", icon: "🧅" },
-  { id: "fish", name: "মাছ", icon: "🐟" },
-  { id: "meat", name: "মাংস", icon: "🥩" },
-  { id: "dairy", name: "ডিম/দুধ", icon: "🥚" },
-  { id: "spices", name: "মসলা", icon: "🌶️" },
+  { id: "chal", name: "চাল", icon: "🍚" },
+  { id: "dal", name: "ডাল", icon: "🫘" },
+  { id: "tel", name: "তেল", icon: "🛢️" },
+  { id: "sobji", name: "সবজি", icon: "🥬" },
+  { id: "mach", name: "মাছ", icon: "🐟" },
+  { id: "mangsho", name: "মাংস", icon: "🍗" },
+  { id: "dim-dui", name: "ডিম-দুধ", icon: "🥛" },
+  { id: "mosla", name: "মসলা", icon: "🌶️" },
 ];
 
 function CategoryList() {
-  const router = useRouter();
+  const pathname = usePathname();
   const searchParams = useSearchParams();
-  const activeCategoryId = searchParams.get("category") || "vegetables";
-
-  const handleCategorySelect = (categoryId: string) => {
-    const params = new URLSearchParams(searchParams.toString());
-    params.set("category", categoryId);
-    router.push(`/?${params.toString()}`, { scroll: false });
-  };
+  const queryCategory = searchParams.get("category");
 
   return (
     <div className="w-full flex items-center justify-start md:justify-center overflow-x-auto no-scrollbar py-2.5 px-4 sm:px-6 gap-2 sm:gap-3">
       {CATEGORIES.map((cat) => {
-        const isActive = activeCategoryId === cat.id;
+        const isActive =
+          pathname === `/category/${cat.id}` ||
+          (pathname === "/" && queryCategory === cat.id);
 
         return (
-          <button
+          <Link
             key={cat.id}
-            onClick={() => handleCategorySelect(cat.id)}
+            href={`/category/${cat.id}`}
             className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all shrink-0 cursor-pointer select-none active:scale-95 ${
               isActive
                 ? "bg-emerald-700 text-white shadow-xs font-semibold"
@@ -49,7 +46,7 @@ function CategoryList() {
           >
             <span className="text-sm sm:text-base leading-none">{cat.icon}</span>
             <span>{cat.name}</span>
-          </button>
+          </Link>
         );
       })}
     </div>

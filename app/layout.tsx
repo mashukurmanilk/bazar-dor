@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Hind_Siliguri, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar/Navbar";
+import Footer from "./components/footer/Footer";
+import { Toaster } from "react-hot-toast";
 
 const hindSiliguri = Hind_Siliguri({
   weight: ["300", "400", "500", "600", "700"],
@@ -36,8 +38,22 @@ export default function RootLayout({
       className={`${hindSiliguri.variable} ${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-[#f4f6f5] text-gray-800">
+        <Toaster
+          position="top-center"
+          toastOptions={{
+            style: {
+              background: "#ffffff",
+              color: "#1c241e",
+              boxShadow: "0 4px 12px rgba(0, 0, 0, 0.08)",
+              borderRadius: "12px",
+              fontSize: "14px",
+              fontFamily: "var(--font-hind-siliguri), sans-serif",
+            },
+          }}
+        />
         <Navbar />
         <main className="flex-1">{children}</main>
+        <Footer />
       </body>
     </html>
   );
