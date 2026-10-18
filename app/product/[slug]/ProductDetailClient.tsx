@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { Product, formatUnitBn } from "@/app/lib/api";
+import { Product, formatUnitBn } from "@/app/lib/types";
 import { toBengaliNumerals } from "@/app/lib/bangla-date";
 import { useSession } from "@/app/lib/auth-client";
 import toast from "react-hot-toast";

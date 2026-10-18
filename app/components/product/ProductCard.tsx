@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import { Product, formatUnitBn } from "@/app/lib/api";
+import { Product, formatUnitBn } from "@/app/lib/types";
 import { toBengaliNumerals } from "@/app/lib/bangla-date";
 
 interface ProductCardProps {
@@ -26,6 +26,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   return (
     <Link
       href={`/product/${product.slug}`}
+      prefetch={true}
       className="group bg-white rounded-2xl p-5 border border-gray-100/90 shadow-xs hover:shadow-md hover:border-emerald-600/30 transition-all duration-200 flex flex-col justify-between"
     >
       {/* Top Header: Emoji Thumbnail + Name + Unit */}

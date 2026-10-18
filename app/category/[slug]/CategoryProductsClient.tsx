@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from "react";
 import Link from "next/link";
-import { Product, Category } from "@/app/lib/api";
+import { Product, Category } from "@/app/lib/types";
 import ProductCard from "@/app/components/product/ProductCard";
 import SortDropdown, { SortOption } from "@/app/components/product/SortDropdown";
 import { toBengaliNumerals } from "@/app/lib/bangla-date";

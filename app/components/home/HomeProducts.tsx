@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { Product } from "@/app/lib/api";
+import { Product } from "@/app/lib/types";
 import ProductCard from "@/app/components/product/ProductCard";
 import SortDropdown, { SortOption } from "@/app/components/product/SortDropdown";
 import { toBengaliNumerals } from "@/app/lib/bangla-date";

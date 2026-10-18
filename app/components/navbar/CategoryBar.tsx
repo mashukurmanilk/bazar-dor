@@ -37,6 +37,7 @@ function CategoryList() {
           <Link
             key={cat.id}
             href={`/category/${cat.id}`}
+            prefetch={true}
             className={`flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all shrink-0 cursor-pointer select-none active:scale-95 ${
               isActive
                 ? "bg-emerald-700 text-white shadow-xs font-semibold"
