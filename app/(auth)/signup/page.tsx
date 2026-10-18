@@ -36,15 +36,20 @@ export default function SignUpPage() {
 
       if (res?.error) {
         toast.error(res.error.message || "রেজিস্ট্রেশন ব্যর্থ হয়েছে।");
+        setLoading(false);
       } else {
-        toast.success("অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে! অনুগ্রহ করে সাইন ইন করুন।");
+        toast.success("অ্যাকাউন্ট সফলভাবে তৈরি হয়েছে! সাইন-ইন পেজে নিয়ে যাওয়া হচ্ছে...");
         // Requirement: "If the user Register successfully then navigate him to his login page."
         router.push("/signin");
+        setTimeout(() => {
+          if (window.location.pathname !== "/signin") {
+            window.location.href = "/signin";
+          }
+        }, 300);
       }
     } catch (err) {
       console.error("Sign up error:", err);
       toast.error("রেজিস্ট্রেশন করতে সমস্যা হয়েছে। আবার চেষ্টা করুন।");
-    } finally {
       setLoading(false);
     }
   };

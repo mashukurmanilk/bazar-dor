@@ -29,15 +29,20 @@ function SignInForm() {
 
       if (res?.error) {
         toast.error(res.error.message || "ইমেইল বা পাসওয়ার্ড ভুল হয়েছে।");
+        setLoading(false);
       } else {
         toast.success("সফলভাবে সাইন ইন হয়েছে!");
         router.push(callbackUrl);
         router.refresh();
+        setTimeout(() => {
+          if (window.location.pathname === "/signin") {
+            window.location.href = callbackUrl;
+          }
+        }, 300);
       }
     } catch (err) {
       console.error("Sign in error:", err);
       toast.error("সাইন ইন করতে সমস্যা হয়েছে। আবার চেষ্টা করুন।");
-    } finally {
       setLoading(false);
     }
   };
