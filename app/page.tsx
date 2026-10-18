@@ -1,7 +1,8 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div>Bazar dor home</div>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+      {/* Container ready for the rest of the sections */}
+    </div>
   );
 }
+
